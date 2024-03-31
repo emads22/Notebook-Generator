@@ -7,7 +7,7 @@ ASSETS_DIR = "./assets/"
 # x horizontal positions (coordinates) of the lines in the notebook
 X1_POS, X2_POS = 10, 200
 # y vertical positions (coordinates) of the lines in the notebook
-Y_POS = 21
+Y_POS = 22
 
 
 def add_footer(pdf_object, text):
@@ -28,19 +28,22 @@ def add_lines(pdf_object):
     pdf_object.set_draw_color(100, 100, 100)
     # A4 has 297 mm vertically, leave some padding at the bottom (e.g., 20mm)
     padding_bottom = 20
-    while current_y < (297 - padding_bottom):     
+    while current_y < (297 - padding_bottom):
+        # Draw a line below the topic text for visual separation (coordinates are for 2 points of straight line starting from left side border)
         pdf_object.line(x1=X1_POS, y1=current_y, x2=X2_POS, y2=current_y)
         # increment by 10 (space between lines)
         current_y += 10
+
 
 def add_yellow_background(pdf_object):
     """
     we cannot directly add a background color to the entire page using built-in methods like set_fill_color() because FPDF does not support background colors for the entire page. However, we can simulate a background color by drawing a rectangle that covers the entire page and setting its fill color. 
     """
-    # Set fill color to bright yellow 
+    # Set fill color to bright yellow
     pdf_object.set_fill_color(255, 244, 85)
     # Draw a rectangle covering the entire page to simulate background color, 'F' tells FPDF to fill the rectangle with the specified fill color.
-    pdf_object.rect(0, 0, 210, 297, 'F')  # 210X2_POS97 mm is the size of A4 page
+    # 210X2_POS97 mm is the size of A4 page
+    pdf_object.rect(0, 0, 210, 297, 'F')
 
 
 def main():
@@ -64,8 +67,6 @@ def main():
         pdf.set_text_color(100, 100, 100)
         # Add Header: a cell (text) to the PDF for the current topic
         pdf.cell(w=0, h=12, txt=row['Topic'], align='L')
-        # Draw a line below the topic text for visual separation (coordinates are for 2 points of straight line starting from left side border)
-        pdf.line(x1=X1_POS, y1=Y_POS, x2=X2_POS, y2=Y_POS)
         # Add Footer to this page
         add_footer(pdf, row['Topic'])
         # Add lines like a notebook to this page
@@ -81,7 +82,6 @@ def main():
             add_footer(pdf, row['Topic'])
             # Add lines like a notebook to each page
             add_lines(pdf)
-            
 
     # Output the PDF to a file named "notebook.pdf"
     pdf.output(ASSETS_DIR + "notebook.pdf")
