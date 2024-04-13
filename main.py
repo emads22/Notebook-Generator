@@ -1,9 +1,14 @@
 from fpdf import FPDF
 import pandas as pd
+from pathlib import Path
 
 
-# Define the directory where the assets (e.g., topics.csv) are located
-ASSETS_DIR = "./assets/"
+# Define the assets directory
+ASSETS_DIR = Path("./assets/")
+# Define the topics.csv path
+TOPICS_FILE = ASSETS_DIR / "data" / "topics.csv"
+# Define the output file path
+OUTPUT_FILE = ASSETS_DIR / "output" / "notebook.pdf"
 # x horizontal positions (coordinates) of the lines in the notebook
 X1_POS, X2_POS = 10, 200
 # y vertical positions (coordinates) of the lines in the notebook
@@ -53,7 +58,7 @@ def main():
     pdf.set_auto_page_break(auto=False, margin=0)
 
     # Read the data from the topics.csv file into a pandas DataFrame
-    df = pd.read_csv(ASSETS_DIR + "topics.csv")
+    df = pd.read_csv(TOPICS_FILE)
 
     # Iterate through each row in the DataFrame
     for index, row in df.iterrows():
@@ -84,8 +89,12 @@ def main():
             add_lines(pdf)
 
     # Output the PDF to a file named "notebook.pdf"
-    pdf.output(ASSETS_DIR + "notebook.pdf")
+    pdf.output(OUTPUT_FILE)
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+        print("\n\n--- PDF notebook generated successfully. ---\n\n")
+    except Exception as e:
+        print("\n\n- PDF generation failed:\n- ", str(e))
