@@ -13,9 +13,9 @@ Notebook Generator is a Python script that generates a PDF notebook with customi
 1. Clone the repository.
 2. Ensure Python 3.x is installed.
 3. Install the required dependencies using `pip install -r requirements.txt`.
-4. Configure the necessary parameters such as directory paths and layout parameters in `main.py`.
+4. Configure the necessary parameters such as directory paths and layout parameters in `constants.py`.
    - Adjust `ASSETS_DIR` to specify the directory where asset files (e.g., topics.csv) are located.
-   - Customize `X1_POS`, `X2_POS`, and `Y_POS` to adjust the positions of lines in the notebook.
+   - Customize parameters such as `LINE_COLOR`, `HEADER_FONT`, etc., to adjust the appearance of the notebook.
 5. Run the script using `python main.py`.
 
 ## Usage

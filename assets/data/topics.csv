@@ -11,12 +11,12 @@ Order,Topic,Pages
 10,Tuples,2
 11,Enumerate,2
 12,F-Strings,2
-13,"Write Text Files, Read Text Files",3
+13,"Read/Write Text Files",3
 14,File Paths,2
 15,List Comprehensions,2
 16,Comments,2
 17,With-Context Manager,2
-18,"If, Elif, and Else Conditionals",3
+18,"Conditionals: If, Elif, Else",3
 19,Slicing,2
 20,Dictionaries,3
 21,Try-Except and Exceptions,2
@@ -33,8 +33,8 @@ Order,Topic,Pages
 32,Git and Github,4
 33,Third-Party Modules,2
 34,GUI,2
-35,Web Development with Streamlit,6
+35,Web Development (Streamlit),6
 36,Heroku Deployment,2
-37,PDF Generation with PdfKit,4
-38,Data Handling with Pandas,6
+37,PDF Generation (PdfKit),4
+38,Data Handling (Pandas),6
 39,Sending Emails,4
