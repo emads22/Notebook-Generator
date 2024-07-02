@@ -1,13 +1,22 @@
 # Notebook Generator
 
 ## Overview
-Notebook Generator is a Python script that generates a PDF notebook with customizable topics and page layouts. It simulates a notebook-like appearance with yellow backgrounds and horizontal lines, making it suitable for various educational or note-taking purposes.
+Notebook Generator is a versatile Python script designed to create a PDF notebook with customizable topics and page layouts. It offers a simulated notebook-like appearance, featuring yellow backgrounds and horizontal lines, which is ideal for various educational or note-taking purposes.
+
+With its user-friendly customization options, you can tailor the notebook to fit your specific needs, whether for classroom use, personal study, or professional notes.
+
+This document is also optimized for printing, ensuring that your notes are easily accessible and usable in physical form.
 
 ## Features
 - **Customizable Topics**: Define topics and the number of pages for each topic using a CSV file (`assets/topics.csv`). These topics are features of Python to learn, and users can modify them as needed.
 - **Notebook-like Appearance**: Generates PDFs with yellow backgrounds and horizontal lines resembling notebook pages.
 - **Printable A4 PDF**: The generated PDF is A4-sized and printable, suitable for use with hard copies.
 - **Easy Configuration**: Customize directory paths and layout parameters easily within the script.
+
+## Technologies Used
+- fpdf: A library for PDF document generation.
+- pandas: A data manipulation and analysis library.
+- traceback: A module for extracting, formatting, and printing stack traces of Python programs.
 
 ## Setup
 1. Clone the repository.
