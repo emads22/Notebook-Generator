@@ -113,6 +113,9 @@ def main():
     """
     Main function for executing the PDF notebook generation.
     """
+    # Display logo
+    print("\n\n\n\n", ASCII_ART, "\n\n")
+    
     notebook = NoteBook()  # Create a new instance of the NoteBook class
     notebook.generate()  # Generate the PDF notebook
 
